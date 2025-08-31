@@ -23,20 +23,11 @@ bcrypt.hash(password, saltRounds, (err, hash) => {
 });
 
 bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
-  if (err) {
-    console.error('Hashing error:', err);
-  } else {
-    console.log('Hashed password:', hash);
-
-    bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
-      if (err) {
-        console.error('Comparison error:', err);
-      } else {
-        console.log('Password match:', res); // should log true
-      }
-    });
-  }
+  bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+    console.log(res);
+  });
 });
+
 
 
 
